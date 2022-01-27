@@ -1,8 +1,5 @@
-﻿using Conservapp.Services;
-using Conservapp.Views;
-using System;
+﻿using Conservapp.Views.Splash;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Conservapp
 {
@@ -12,9 +9,9 @@ namespace Conservapp
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            MainPage = new SplashScreenView();
+            // DependencyService.Register<MockDataStore>();
+            //  MainPage = new AppShell();
         }
 
         protected override void OnStart()

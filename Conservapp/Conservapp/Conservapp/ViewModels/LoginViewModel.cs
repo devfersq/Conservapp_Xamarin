@@ -1,24 +1,58 @@
-﻿using Conservapp.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using Xamarin.Forms;
 
 namespace Conservapp.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        public Command LoginCommand { get; }
-
+        public Command IngresarCommand { get; set; }
         public LoginViewModel()
         {
-            LoginCommand = new Command(OnLoginClicked);
+            this.IngresarCommand = new Command(IngresarCommandClicked);
         }
 
-        private async void OnLoginClicked(object obj)
+        public async void IngresarCommandClicked()
         {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            try
+            {
+                if (String.IsNullOrWhiteSpace(uSer_Entry))
+                {
+                    await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo usuario, es obligatorio.", "Aceptar");
+                }
+                else
+                {
+                    if (String.IsNullOrWhiteSpace(pAss_Entry))
+                    {
+                        await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo contraseña, es obligatorio.", "Aceptar");
+                    }
+                    else
+                    {
+                       // await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+                        App.Current.MainPage = new AppShell();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                var error = ex.ToString();
+      
+            }
         }
+        #region Validations Entry
+        private string _pAss_Entry;
+        public string pAss_Entry
+        {
+            get { return _pAss_Entry; }
+            set { SetProperty(ref _pAss_Entry, value); }
+        }
+        private string _uSer_Entry;
+        public string uSer_Entry
+        {
+            get { return _uSer_Entry; }
+            set { SetProperty(ref _uSer_Entry, value); }
+        }
+
+        #endregion
     }
 }
