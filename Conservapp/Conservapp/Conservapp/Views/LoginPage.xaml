@@ -86,7 +86,7 @@
                         Text="Iniciar sesión" 
                         BorderRadius="10"
                         BackgroundColor="{StaticResource Negro}" 
-                        TextColor="{StaticResource Verde}" 
+                        TextColor="{StaticResource Amarillo}" 
                         FontSize="18" 
                         Command="{Binding IngresarCommand}"
                         />
@@ -106,7 +106,7 @@
                                FontAttributes="Bold"
                                VerticalOptions="EndAndExpand" 
                                HorizontalOptions="CenterAndExpand" 
-                               TextColor="{StaticResource Verde}">
+                               TextColor="{StaticResource Amarillo}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding OpenUrlCommand}" />
                                 </Label.GestureRecognizers>

@@ -16,6 +16,7 @@
             <Color x:Key="AzulFuerte">#2c4379</Color>
             <Color x:Key="Rojo">#f20000</Color>
             <Color x:Key="Verde">#8db143</Color>
+            <Color x:Key="Amarillo">#fff212</Color>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
