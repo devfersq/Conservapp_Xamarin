@@ -1,14 +1,5 @@
-﻿using Conservapp.Models;
-using Conservapp.ViewModels;
-using Conservapp.Views;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Conservapp.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Conservapp.Views
 {
@@ -26,7 +17,6 @@ namespace Conservapp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            _viewModel.OnAppearing();
         }
     }
 }

@@ -6,7 +6,7 @@
              xmlns:custom="clr-namespace:Conservapp.Render.EntryR"
              Title="{Binding Title}"
              BackgroundColor="{StaticResource Primary}">
-    
+
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
@@ -16,26 +16,157 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-       
+
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" 
                          Padding="30,24,30,24" 
                          Spacing="10">
                 <Label 
-                                        Text="Reporte de inspección"
-                   HorizontalOptions="CenterAndExpand"
-                                        TextColor="{StaticResource Blanco}"
-                                        FontSize="Title"/>
-                <Button Text="Escanear codigo QR"
-                        Command="{Binding OpenQrCommand}"
-                        BackgroundColor="{StaticResource Amarillo}"
-                        TextColor="{StaticResource Negro}" />
-
-
+                    Text="Reporte de inspección"
+                    HorizontalOptions="CenterAndExpand"
+                    TextColor="{StaticResource Blanco}"
+                    FontSize="Title"/>
                 
+                <Button 
+                    Text="Escanear codigo QR"
+                    Command="{Binding OpenQrCommand}"
+                    BackgroundColor="{StaticResource Amarillo}"
+                    TextColor="{StaticResource Negro}" />
 
+                <Label 
+                    Text="Nombre." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="NombreCEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding Nombre_Entry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Dirección." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="DireccionEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding DireccionEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Siglo." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="SigloEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding SigloEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Estilo." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="EstiloEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding EstiloEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Responsable." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="ResponsableEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding ResponsableEntry, Mode=TwoWay}"/>
+
+
+                <Label 
+                    Text="Ultima intervención." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="uintervencionEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding uintervencionEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Intervenciones Relevantes." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="irelevantesEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding irelevantesEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Numero de catalogo." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="NcatalogoEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding NcatalogoEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Planos." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="PlanosEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding PlanosEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Modelo 3d." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="M3dEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding M3dEntry, Mode=TwoWay}"/>
+                
+                <Label 
+                    Text="Riesgos circundantes." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="RcircundantesEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding RcircundantesEntry, Mode=TwoWay}"/>
             </StackLayout>
-            
+
         </ScrollView>
     </Grid>
 

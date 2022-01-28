@@ -2,20 +2,18 @@
 
 namespace Conservapp.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class MapViewModel : BaseViewModel
     {
-
-        public ItemsViewModel()
+        public MapViewModel()
         {
             try
             {
-                Title = "Formulario";
+                Title = "Ubicación";
             }
             catch (Exception ex)
             {
                 var error = ex.ToString();
             }
         }
-
     }
 }
