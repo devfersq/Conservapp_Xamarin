@@ -24,9 +24,10 @@ namespace Conservapp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            #region Google Maps
+            #region Google Maps, escaner
             Xamarin.FormsMaps.Init(this, savedInstanceState);
-            //Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
+            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
             #endregion
             LoadApplication(new App());
         }

@@ -64,33 +64,24 @@
                            WidthRequest="250"
                            Text="{Binding pAss_Entry, Mode=TwoWay}"/>
                         </StackLayout>
-                        <!--<StackLayout>
-                            <Label  HorizontalOptions="CenterAndExpand" 
-                        TextColor="{StaticResource Negro}"
-                        VerticalOptions="StartAndExpand">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="¿Olvidaste" />
-                                        <Span FontAttributes="Bold"
-                                  Text=" tu contraseña?">
-                                            <Span.GestureRecognizers>
-                                                <TapGestureRecognizer  />
-                                            </Span.GestureRecognizers>
-                                        </Span>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                        </StackLayout>-->
+                       
 
                         <Button  
-                        Text="Iniciar sesión" 
+                        Text="Iniciar por QR" 
+                        BorderRadius="10"
+                        BackgroundColor="{StaticResource Negro}" 
+                        TextColor="{StaticResource Amarillo}" 
+                        FontSize="18" 
+                        Command="{Binding IngresarQRCommand}"
+                        />
+                        <Button  
+                        Text="Iniciar con credenciales" 
                         BorderRadius="10"
                         BackgroundColor="{StaticResource Negro}" 
                         TextColor="{StaticResource Amarillo}" 
                         FontSize="18" 
                         Command="{Binding IngresarCommand}"
                         />
-
 
                     </StackLayout>
 
