@@ -43,7 +43,7 @@
                     Keyboard="Text" 
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
-                    Text="{Binding Nombre_Entry, Mode=TwoWay}"/>
+                    Text="{Binding NombreCEntry, Mode=TwoWay}"/>
 
                 <Label 
                     Text="Dirección." 
@@ -56,115 +56,292 @@
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
                     Text="{Binding DireccionEntry, Mode=TwoWay}"/>
-
                 <Label 
-                    Text="Siglo." 
+                    Text="Referencia." 
                     VerticalTextAlignment="Center" 
                     TextColor="White" />
                 <custom:CustomEntry 
-                    x:Name="SigloEntry" 
+                    x:Name="referenciaEntry" 
                     WidthRequest="200" 
                     Keyboard="Text" 
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
-                    Text="{Binding SigloEntry, Mode=TwoWay}"/>
+                    Text="{Binding referenciaEntry, Mode=TwoWay}"/>
 
                 <Label 
-                    Text="Estilo." 
+                    Text="Tipo de Propiedad." 
                     VerticalTextAlignment="Center" 
                     TextColor="White" />
                 <custom:CustomEntry 
-                    x:Name="EstiloEntry" 
+                    x:Name="TipodePropiedadEntry" 
                     WidthRequest="200" 
                     Keyboard="Text" 
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
-                    Text="{Binding EstiloEntry, Mode=TwoWay}"/>
-
-                <Label 
-                    Text="Responsable." 
-                    VerticalTextAlignment="Center" 
-                    TextColor="White" />
-                <custom:CustomEntry 
-                    x:Name="ResponsableEntry" 
-                    WidthRequest="200" 
-                    Keyboard="Text" 
-                    IsReadOnly="true"
-                    TextColor="{StaticResource Blanco}"
-                    Text="{Binding ResponsableEntry, Mode=TwoWay}"/>
-
-
-                <Label 
-                    Text="Ultima intervención." 
-                    VerticalTextAlignment="Center" 
-                    TextColor="White" />
-                <custom:CustomEntry 
-                    x:Name="uintervencionEntry" 
-                    WidthRequest="200" 
-                    Keyboard="Text" 
-                    IsReadOnly="true"
-                    TextColor="{StaticResource Blanco}"
-                    Text="{Binding uintervencionEntry, Mode=TwoWay}"/>
-
-                <Label 
-                    Text="Intervenciones Relevantes." 
-                    VerticalTextAlignment="Center" 
-                    TextColor="White" />
-                <custom:CustomEntry 
-                    x:Name="irelevantesEntry" 
-                    WidthRequest="200" 
-                    Keyboard="Text" 
-                    IsReadOnly="true"
-                    TextColor="{StaticResource Blanco}"
-                    Text="{Binding irelevantesEntry, Mode=TwoWay}"/>
-
-                <Label 
-                    Text="Numero de catalogo." 
-                    VerticalTextAlignment="Center" 
-                    TextColor="White" />
-                <custom:CustomEntry 
-                    x:Name="NcatalogoEntry" 
-                    WidthRequest="200" 
-                    Keyboard="Text" 
-                    IsReadOnly="true"
-                    TextColor="{StaticResource Blanco}"
-                    Text="{Binding NcatalogoEntry, Mode=TwoWay}"/>
-
-                <Label 
-                    Text="Planos." 
-                    VerticalTextAlignment="Center" 
-                    TextColor="White" />
-                <custom:CustomEntry 
-                    x:Name="PlanosEntry" 
-                    WidthRequest="200" 
-                    Keyboard="Text" 
-                    IsReadOnly="true"
-                    TextColor="{StaticResource Blanco}"
-                    Text="{Binding PlanosEntry, Mode=TwoWay}"/>
-
-                <Label 
-                    Text="Modelo 3d." 
-                    VerticalTextAlignment="Center" 
-                    TextColor="White" />
-                <custom:CustomEntry 
-                    x:Name="M3dEntry" 
-                    WidthRequest="200" 
-                    Keyboard="Text" 
-                    IsReadOnly="true"
-                    TextColor="{StaticResource Blanco}"
-                    Text="{Binding M3dEntry, Mode=TwoWay}"/>
+                    Text="{Binding tipodePropiedadEntry, Mode=TwoWay}"/>
                 
                 <Label 
-                    Text="Riesgos circundantes." 
+                    Text="Responsable del inmueble." 
                     VerticalTextAlignment="Center" 
                     TextColor="White" />
                 <custom:CustomEntry 
-                    x:Name="RcircundantesEntry" 
+                    x:Name="ResponsabledelinmuebleEntry" 
                     WidthRequest="200" 
                     Keyboard="Text" 
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
-                    Text="{Binding RcircundantesEntry, Mode=TwoWay}"/>
+                    Text="{Binding responsabledelinmuebleEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="ZMH." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="ZMHEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding zMHEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="PCH." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="PCHEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding pCHEntry, Mode=TwoWay}"/>
+
+
+                <Label 
+                    Text="Monumento histórico." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="MonumentohistoricoEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding monumentohistoricoEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Referencia jurídica." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="ReferenciajuridicaEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding referenciajuridicaEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Numero de niveles." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="NdenivelesEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding ndenivelesEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Área total." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="AtotalEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding atotalEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Área de construcción." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="AreadeconstruccionEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding aredeconstruccionEntry, Mode=TwoWay}"/>
+                
+                <Label 
+                    Text="Numero de accesos." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="NdeaccesosEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding ndeaccesosEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Uso original." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="UsooriginalEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding usooriginalEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Uso actual." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="UsoactualEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding usoactualEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Habitado." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="HabitadoEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding habitadoEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Estilo arquitectónico." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="EstiloarqEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding estiloarqEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Año de construcción." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="AdeconstruccionEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding adeconstruccionEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Etapas constructivas." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="EtapasconsEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding etapasconsEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Intervenciones registradas." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="IntervencionesrEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding intervencionesrEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Principales deterioros." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="PrincipalesdeteriorosEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding principalesdeteriorosEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Alteraciones relevantes." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="AlteracionesrelevantesEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding alteracionesrelevantesEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Estado de conservación." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="EstadodeconservacionEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding estadodeconservacionEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Criterios de valor en riesgo." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="CriteriosdevrEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding criteriosdevrEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Grado de vulnerabilidad." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="GradodevulnerabilidadEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding gradodevulnerabilidadEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Grado de resiliencia." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="GradoderesilienciaEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding gradoderesilienciaEntry, Mode=TwoWay}"/>
             </StackLayout>
 
         </ScrollView>

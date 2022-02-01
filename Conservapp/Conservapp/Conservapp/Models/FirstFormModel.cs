@@ -19,12 +19,12 @@
         public string uSoactual { get; set; }
         public string hAbitado { get; set; }
         public string eStiloarquitectonico { get; set; }
-        public string aNodeconstrucción { get; set; }
+        public string aNodeconstruccion { get; set; }
         public string eTapasconstructivas { get; set; }
         public string iNtervencionesregistradas { get; set; }
         public string pRincipalesdeterioros { get; set; }
         public string aLteracionesrelevantes { get; set; }
-        public string eStadodeconservación { get; set; }
+        public string eStadodeconservacion { get; set; }
         public string cRiteriosdevalorenriesgo { get; set; }
         public string gRadodevulnerabilidad { get; set; }
         public string gRadoderesiliencia { get; set; }

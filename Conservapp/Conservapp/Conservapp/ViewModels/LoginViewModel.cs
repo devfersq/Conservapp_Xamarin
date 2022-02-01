@@ -53,7 +53,7 @@ namespace Conservapp.ViewModels
                 {
                     page.IsScanning = false;
                     //ResultScan = result.ToString();
-                    Device.BeginInvokeOnMainThread(() =>
+                    Device.BeginInvokeOnMainThread(async () =>
                     {
                         Application.Current.MainPage.Navigation.PopModalAsync();
                         if (string.IsNullOrEmpty(result.Text))
