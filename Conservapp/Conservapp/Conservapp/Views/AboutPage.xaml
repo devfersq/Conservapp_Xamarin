@@ -26,13 +26,21 @@
                     HorizontalOptions="CenterAndExpand"
                     TextColor="{StaticResource Blanco}"
                     FontSize="Title"/>
-                
+
                 <Button 
                     Text="Escanear codigo QR"
                     Command="{Binding OpenQrCommand}"
                     BackgroundColor="{StaticResource Amarillo}"
                     TextColor="{StaticResource Negro}" />
+                <Frame 
+                                    Padding="0,10,0,10"
+                                    BackgroundColor="{StaticResource Negro}"
+                                    BorderColor="{StaticResource Amarillo}">
 
+                    <Label Text="GENERALES"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="CenterAndExpand"/>
+                </Frame>
                 <Label 
                     Text="Nombre." 
                     VerticalTextAlignment="Center" 
@@ -67,6 +75,26 @@
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
                     Text="{Binding referenciaEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Croquis y fachada." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White"
+                    IsVisible="{Binding lAbelcyf}"/>
+                <Image
+                    x:Name="imacyf"
+                  HorizontalOptions="CenterAndExpand"
+                    Source="Image1"
+                    IsVisible="{Binding BImage1}"/>
+
+                <Frame 
+                     Padding="0,10,0,10"
+                     BackgroundColor="{StaticResource Negro}"
+                     BorderColor="{StaticResource Amarillo}">
+
+                    <Label Text="LEGALES "
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="CenterAndExpand"/>
+                </Frame>
 
                 <Label 
                     Text="Tipo de Propiedad." 
@@ -79,7 +107,7 @@
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
                     Text="{Binding tipodePropiedadEntry, Mode=TwoWay}"/>
-                
+
                 <Label 
                     Text="Responsable del inmueble." 
                     VerticalTextAlignment="Center" 
@@ -140,6 +168,15 @@
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
                     Text="{Binding referenciajuridicaEntry, Mode=TwoWay}"/>
+                <Frame 
+                                    Padding="0,10,0,10"
+                                    BackgroundColor="{StaticResource Negro}"
+                                    BorderColor="{StaticResource Amarillo}">
+
+                    <Label Text="DESCRIPCION"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="CenterAndExpand"/>
+                </Frame>
 
                 <Label 
                     Text="Numero de niveles." 
@@ -176,7 +213,7 @@
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
                     Text="{Binding aredeconstruccionEntry, Mode=TwoWay}"/>
-                
+
                 <Label 
                     Text="Numero de accesos." 
                     VerticalTextAlignment="Center" 
@@ -222,7 +259,33 @@
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
                     Text="{Binding habitadoEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Planimetría y modelo." 
+                    IsVisible="{Binding lPym}"
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <Image
+                    x:Name="Imagepym"
+                  Source="Image2" 
+                  HorizontalOptions="CenterAndExpand"
+                    IsVisible="{Binding BImage2}"/>
+                <Label 
+                    Text="Ver archivo OBJ." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <Image
+                    x:Name="imageobj"
+                  Source="Dashboardshell" 
+                  HorizontalOptions="CenterAndExpand"/>
+                <Frame 
+                                    Padding="0,10,0,10"
+                                    BackgroundColor="{StaticResource Negro}"
+                                    BorderColor="{StaticResource Amarillo}">
 
+                    <Label Text="FABRICA"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="CenterAndExpand"/>
+                </Frame>
                 <Label 
                     Text="Estilo arquitectónico." 
                     VerticalTextAlignment="Center" 
@@ -270,7 +333,15 @@
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
                     Text="{Binding intervencionesrEntry, Mode=TwoWay}"/>
+                <Frame 
+                                    Padding="0,10,0,10"
+                                    BackgroundColor="{StaticResource Negro}"
+                                    BorderColor="{StaticResource Amarillo}">
 
+                    <Label Text="ESTADO DE CONSERVACION"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="CenterAndExpand"/>
+                </Frame>
                 <Label 
                     Text="Principales deterioros." 
                     VerticalTextAlignment="Center" 
@@ -306,7 +377,15 @@
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
                     Text="{Binding estadodeconservacionEntry, Mode=TwoWay}"/>
+                <Frame 
+                                    Padding="0,10,0,10"
+                                    BackgroundColor="{StaticResource Negro}"
+                                    BorderColor="{StaticResource Amarillo}">
 
+                    <Label Text="VULNERABILIDAD"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="CenterAndExpand"/>
+                </Frame>
                 <Label 
                     Text="Criterios de valor en riesgo." 
                     VerticalTextAlignment="Center" 
@@ -342,6 +421,22 @@
                     IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
                     Text="{Binding gradoderesilienciaEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Mapas de riesgos internos y externos." 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" 
+                    IsVisible="{Binding lMdriye}"/>
+                <Image
+                  x:Name="imagemdriye"
+                  Source="Image3" 
+                  HorizontalOptions="CenterAndExpand"
+                  IsVisible="{Binding BImage3}"/>
+
+                <Button 
+                    Text="Limpiar formulario"
+                    Command="{Binding fOrmcleanCommand}"
+                    BackgroundColor="{StaticResource Amarillo}"
+                    TextColor="{StaticResource Negro}" />
             </StackLayout>
 
         </ScrollView>

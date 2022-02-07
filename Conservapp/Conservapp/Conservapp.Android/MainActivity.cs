@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Android;
+using Acr.UserDialogs;
 
 namespace Conservapp.Droid
 {
@@ -25,6 +26,7 @@ namespace Conservapp.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             #region Google Maps, escaner
+            UserDialogs.Init(this);
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             global::ZXing.Net.Mobile.Forms.Android.Platform.Init();

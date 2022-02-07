@@ -1,4 +1,5 @@
-﻿using Conservapp.Models;
+﻿using Acr.UserDialogs;
+using Conservapp.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -52,13 +53,12 @@ namespace Conservapp.ViewModels
                 page.OnScanResult += (result) =>
                 {
                     page.IsScanning = false;
-                    //ResultScan = result.ToString();
                     Device.BeginInvokeOnMainThread(async () =>
                     {
-                        Application.Current.MainPage.Navigation.PopModalAsync();
+                      await Application.Current.MainPage.Navigation.PopModalAsync();
                         if (string.IsNullOrEmpty(result.Text))
                         {
-                            Application.Current.MainPage.DisplayAlert("CSIndustrial", "No se ha escaneado ningún código válido.", "Aceptar");
+                           await Application.Current.MainPage.DisplayAlert("ConservAPP", "No se ha escaneado ningún código válido.", "Aceptar");
                         }
                         else
                         {
@@ -70,20 +70,18 @@ namespace Conservapp.ViewModels
                                     if (uSer_Entry.Equals("cegirpuebla@gmail.com") || pAss_Entry.Equals("1234567"))
                                     {
                                         App.Current.MainPage = new AppShell();
-                                    }
+                            }
                                     else
                                     {
-                                        Application.Current.MainPage.DisplayAlert("ConservApp", "Usuario no encontrado...", "Aceptar");
-                                    }
-
-                              
+                                  await  Application.Current.MainPage.DisplayAlert("ConservApp", "Usuario no encontrado...", "Aceptar");
+                            }
                         }
                     });
                 };
                 _ = Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(page)
                 {
                     BarTextColor = Color.White,
-                    BarBackgroundColor = Color.CadetBlue
+                    BarBackgroundColor = Color.Black
                 }, true);
                 #endregion
 
@@ -92,42 +90,44 @@ namespace Conservapp.ViewModels
             catch (Exception ex)
             {
                 var error = ex.ToString();
-
             }
         }
         public async void IngresarCommandClicked()
         {
             try
             {
-
-                            if (String.IsNullOrWhiteSpace(uSer_Entry))
-                            {
-                              await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo usuario, es obligatorio.", "Aceptar");
-                            }
-                            else
-                            {
-                                if (String.IsNullOrWhiteSpace(pAss_Entry))
-                                {
+           
+                if (String.IsNullOrWhiteSpace(uSer_Entry))
+                {
+                    await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo usuario, es obligatorio.", "Aceptar");
+                }
+                else
+                {
+                    if (String.IsNullOrWhiteSpace(pAss_Entry))
+                    {
                         await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo contraseña, es obligatorio.", "Aceptar");
-                                }
-                                else
-                                {
-                                    if (uSer_Entry.Equals("cegirpuebla@gmail.com") || pAss_Entry.Equals("1234567"))
-                                    {
-                                        App.Current.MainPage = new AppShell();
-                                    }
-                                    else
-                                    {
+                    }
+                    else
+                    {
+                       
+                        if (uSer_Entry.Equals("cegirpuebla@gmail.com") || pAss_Entry.Equals("1234567"))
+                        {
+                            UserDialogs.Instance.ShowLoading("Validando registro ...");
+                            App.Current.MainPage = new AppShell();
+                            UserDialogs.Instance.HideLoading();
+                        }
+                        else
+                        {
                             await Application.Current.MainPage.DisplayAlert("ConservApp", "Usuario no encontrado...", "Aceptar");
-                                    }
-
-                                }
-                            }
+                       }
+                      
+                    }
+                }
             }
             catch (Exception ex)
             {
                 var error = ex.ToString();
-      
+                UserDialogs.Instance.HideLoading();
             }
         }
         #region Validations Entry

@@ -1,8 +1,8 @@
-﻿using Conservapp.Models;
+﻿using Acr.UserDialogs;
+using Conservapp.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Windows.Input;
 using Xamarin.Forms;
 using ZXing;
 using ZXing.Mobile;
@@ -12,19 +12,30 @@ namespace Conservapp.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
-        
-            public Command OpenQrCommand { get; set; }
+
+        public Command OpenQrCommand { get; set; }
+        public Command fOrmcleanCommand { get; set; }
         public AboutViewModel()
         {
             try
             {
+                Title = "Bienvenido";
+                lAbelcyf = false;
+                BImage1 = false;
+                lPym = false;
+                BImage2 = false;
+                lPym = false;
+                BImage2 = false;
+                lMdriye = false;
+                BImage3 = false;
                 this.OpenQrCommand = new Command(IngresarQRCommandClicked);
-            }catch(Exception ex)
+                this.fOrmcleanCommand = new Command(fOrmcleanCommandClicked);
+
+            }
+            catch (Exception ex)
             {
                 var error = ex.ToString();
             }
-            Title = "Bienvenido";
-            //OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
         }
         public async void IngresarQRCommandClicked()
         {
@@ -52,53 +63,65 @@ namespace Conservapp.ViewModels
                 page.OnScanResult += (result) =>
                 {
                     page.IsScanning = false;
-                    //ResultScan = result.ToString();
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         Application.Current.MainPage.Navigation.PopModalAsync();
                         if (string.IsNullOrEmpty(result.Text))
                         {
-                            Application.Current.MainPage.DisplayAlert("CSIndustrial", "No se ha escaneado ningún código válido.", "Aceptar");
+                            Application.Current.MainPage.DisplayAlert("ConservAPP", "No se ha escaneado ningún código válido.", "Aceptar");
                         }
                         else
                         {
+                            UserDialogs.Instance.ShowLoading("Cargando informac...");
                             var aux_ = ($"{result}");
                             var ObjJson_ = string.Concat(aux_);
                             var JsonResult_ = JsonConvert.DeserializeObject<FirstFormModel>(ObjJson_);
+                          
+                                NombreCEntry = JsonResult_.nOmbre;
+                                DireccionEntry = JsonResult_.dIreccion;
+                                referenciaEntry = JsonResult_.rEferencias;
+                                tipodePropiedadEntry = JsonResult_.tIpodePropiedad;
+                                responsabledelinmuebleEntry = JsonResult_.rEsponsabledelInmueble;
+                                zMHEntry = JsonResult_.ZMH;
+                                pCHEntry = JsonResult_.PCH;
+                                monumentohistoricoEntry = JsonResult_.mOnumentohistorico;
+                                referenciajuridicaEntry = JsonResult_.rEferenciajuridica;
+                                ndenivelesEntry = JsonResult_.nUmerodeniveles;
+                                atotalEntry = JsonResult_.aReatotal;
+                                aredeconstruccionEntry = JsonResult_.aReadeconstruccion;
+                                ndeaccesosEntry = JsonResult_.nUmerodeaccesos;
+                                usooriginalEntry = JsonResult_.uSoriginal;
+                                usoactualEntry = JsonResult_.uSoactual;
+                                habitadoEntry = JsonResult_.hAbitado;
+                                estiloarqEntry = JsonResult_.eStiloarquitectonico;
+                                adeconstruccionEntry = JsonResult_.aNodeconstruccion;
+                                etapasconsEntry = JsonResult_.eTapasconstructivas;
+                                intervencionesrEntry = JsonResult_.iNtervencionesregistradas;
+                                principalesdeteriorosEntry = JsonResult_.pRincipalesdeterioros;
+                                alteracionesrelevantesEntry = JsonResult_.aLteracionesrelevantes;
+                                estadodeconservacionEntry = JsonResult_.eStadodeconservacion;
+                                criteriosdevrEntry = JsonResult_.cRiteriosdevalorenriesgo;
+                                gradodevulnerabilidadEntry = JsonResult_.gRadodevulnerabilidad;
+                                gradoderesilienciaEntry = JsonResult_.gRadoderesiliencia;
 
-                            NombreCEntry = JsonResult_.nOmbre;
-                            DireccionEntry = JsonResult_.dIreccion;
-                            referenciaEntry = JsonResult_.rEferencias;
-                            tipodePropiedadEntry = JsonResult_.tIpodePropiedad;
-                            responsabledelinmuebleEntry = JsonResult_.rEsponsabledelInmueble;
-                            zMHEntry = JsonResult_.ZMH;
-                            pCHEntry = JsonResult_.PCH;
-                            monumentohistoricoEntry = JsonResult_.mOnumentohistorico;
-                            referenciajuridicaEntry = JsonResult_.rEferenciajuridica;
-                            ndenivelesEntry = JsonResult_.nUmerodeniveles;
-                            atotalEntry = JsonResult_.aReatotal;
-                            aredeconstruccionEntry = JsonResult_.aReadeconstruccion;
-                            ndeaccesosEntry = JsonResult_.nUmerodeaccesos;
-                            usooriginalEntry = JsonResult_.uSoriginal;
-                            usoactualEntry = JsonResult_.uSoactual;
-                            habitadoEntry = JsonResult_.hAbitado;
-                            estiloarqEntry = JsonResult_.eStiloarquitectonico;
-                            adeconstruccionEntry = JsonResult_.aNodeconstruccion;//
-                            etapasconsEntry = JsonResult_.eTapasconstructivas;
-                            intervencionesrEntry = JsonResult_.iNtervencionesregistradas;
-                            principalesdeteriorosEntry = JsonResult_.pRincipalesdeterioros;
-                            alteracionesrelevantesEntry = JsonResult_.aLteracionesrelevantes;
-                            estadodeconservacionEntry = JsonResult_.eStadodeconservacion;//
-                            criteriosdevrEntry = JsonResult_.cRiteriosdevalorenriesgo;
-                            gradodevulnerabilidadEntry = JsonResult_.gRadodevulnerabilidad;
-                            gradoderesilienciaEntry = JsonResult_.gRadoderesiliencia;
+                                #region Limpiar contenido
+                                lAbelcyf = true;
+                                BImage1 = true;
+                                lPym = true;
+                                BImage2 = true;
+                                lMdriye = true;
+                                BImage3 = true;
+                                #endregion
+                                UserDialogs.Instance.HideLoading();
+                            
+                        
                         }
                     });
                 };
                 _ = Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(page)
                 {
                     BarTextColor = Color.White,
-                    BarBackgroundColor = Color.CadetBlue
+                    BarBackgroundColor = Color.Black
                 }, true);
                 #endregion
 
@@ -107,10 +130,58 @@ namespace Conservapp.ViewModels
             catch (Exception ex)
             {
                 var error = ex.ToString();
+                UserDialogs.Instance.HideLoading();
 
             }
         }
 
+        public async void fOrmcleanCommandClicked()
+        {
+            try
+            {
+                NombreCEntry = "";
+                DireccionEntry = "";
+                referenciaEntry = "";
+                tipodePropiedadEntry ="" ;
+                responsabledelinmuebleEntry = "";
+                zMHEntry = "";
+                pCHEntry = "";
+                monumentohistoricoEntry = "";
+                referenciajuridicaEntry = "";
+                ndenivelesEntry = "";
+                atotalEntry ="";
+                aredeconstruccionEntry = "";
+                ndeaccesosEntry = "";
+                usooriginalEntry = "";
+                usoactualEntry = "";
+                habitadoEntry = "";
+                estiloarqEntry = "";
+                adeconstruccionEntry = "";
+                etapasconsEntry = "";
+                intervencionesrEntry = "";
+                principalesdeteriorosEntry ="" ;
+                alteracionesrelevantesEntry = "";
+                estadodeconservacionEntry = "";
+                criteriosdevrEntry ="" ;
+                gradodevulnerabilidadEntry = "";
+                gradoderesilienciaEntry ="";
+
+                #region Limpiar contenido
+                lAbelcyf = false;
+                BImage1 = false;
+                lPym = false;
+                BImage2 = false;
+                lMdriye = false;
+                BImage3 = false;
+                #endregion
+
+            }
+            catch (Exception ex)
+            {
+                var error = ex.ToString();
+
+            }
+        }
         #region Get & set
         private string _NombreCEntry;
         public string NombreCEntry
@@ -232,7 +303,7 @@ namespace Conservapp.ViewModels
         {
             get { return _intervencionesrEntry; }
             set { SetProperty(ref _intervencionesrEntry, value); }
-        } 
+        }
         private string _principalesdeteriorosEntry;
         public string principalesdeteriorosEntry
         {
@@ -250,19 +321,19 @@ namespace Conservapp.ViewModels
         {
             get { return _estadodeconservacionEntry; }
             set { SetProperty(ref _estadodeconservacionEntry, value); }
-        }  
+        }
         private string _criteriosdevrEntry;
         public string criteriosdevrEntry
         {
             get { return _criteriosdevrEntry; }
             set { SetProperty(ref _criteriosdevrEntry, value); }
-        } 
+        }
         private string _gradodevulnerabilidadEntry;
         public string gradodevulnerabilidadEntry
         {
             get { return _gradodevulnerabilidadEntry; }
             set { SetProperty(ref _gradodevulnerabilidadEntry, value); }
-        } 
+        }
         private string _gradoderesilienciaEntry;
         public string gradoderesilienciaEntry
         {
@@ -271,6 +342,85 @@ namespace Conservapp.ViewModels
         }
 
         #endregion
+        #region Imagen IsVisible
 
+        public Boolean _lAbelcyf;
+
+        public Boolean lAbelcyf
+        {
+            get { return _lAbelcyf; }
+            set
+            {
+                _lAbelcyf = value;
+                OnPropertyChanged(nameof(lAbelcyf));
+            }
+        }
+        public bool _BImage1 { get; set; }
+        public bool BImage1
+        {
+            get { return _BImage1; }
+            set
+            {
+                if (_BImage1 != value)
+                {
+                    _BImage1 = value;
+                    OnPropertyChanged();
+                }
+            }
+
+        }
+
+        public Boolean _lPym;
+
+        public Boolean lPym
+        {
+            get { return _lPym; }
+            set
+            {
+                _lPym = value;
+                OnPropertyChanged(nameof(lPym));
+            }
+        }
+        public bool _BImage2;
+        public bool BImage2
+        {
+            get { return _BImage2; }
+            set
+            {
+                if (_BImage2 != value)
+                {
+                    _BImage2 = value;
+                    OnPropertyChanged();
+                }
+            }
+
+        }
+
+        public Boolean _lMdriye;
+
+        public Boolean lMdriye
+        {
+            get { return _lMdriye; }
+            set
+            {
+                _lMdriye = value;
+                OnPropertyChanged(nameof(lMdriye));
+            }
+        }
+        public bool _BImage3;
+        public bool BImage3
+        {
+            get { return _BImage3; }
+            set
+            {
+                if (_BImage3 != value)
+                {
+                    _BImage3 = value;
+                    OnPropertyChanged();
+                }
+            }
+
+        }
+        #endregion
     }
 }

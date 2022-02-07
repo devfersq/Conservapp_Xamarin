@@ -1,4 +1,5 @@
 ﻿using Conservapp.Views.Splash;
+using System;
 using Xamarin.Forms;
 
 namespace Conservapp
@@ -8,8 +9,16 @@ namespace Conservapp
 
         public App()
         {
-            InitializeComponent();
-            MainPage = new SplashScreenView();
+            try
+            {
+                InitializeComponent();
+                MainPage = new SplashScreenView();
+            }
+            catch (Exception ex)
+            {
+                var error = ex.ToString();
+            }
+
             // DependencyService.Register<MockDataStore>();
             //  MainPage = new AppShell();
         }
