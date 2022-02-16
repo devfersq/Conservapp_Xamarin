@@ -1,14 +1,716 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:custom="clr-namespace:Conservapp.Render.EntryR"
              x:Class="Conservapp.Views.ItemsPage"
              Title="{Binding Title}"
              x:Name="BrowseItemsPage"
              BackgroundColor="{StaticResource Primary}">
-    <!--<ContentPage.BindingContext>
-        <vm:ItemsViewModel />
-    </ContentPage.BindingContext>-->
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
-    </ContentPage.ToolbarItems>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" 
+                         Padding="30,24,30,24" 
+                         Spacing="10">
+                <Label 
+                    Text="EVALUACIÓN RAPIDA DE DAÑOS"
+                    HorizontalOptions="CenterAndExpand"
+                    TextColor="{StaticResource Blanco}"
+                    FontSize="Title"/>
+
+                <Label 
+                    Text="Contingencia:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNContingenciaEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding ContingenciaEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Fecha :" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNFechaEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding FechaEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Hora:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNHoraEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding HoraEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Nombre del evaluador:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNNombreevaluadorEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding NombreevaluadorEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Teléfono:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNTelefonoEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding TelefonoEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Acompañante en la visita:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNAcompañanteVisitaEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding AcompañanteVisitaEntry, Mode=TwoWay}"/>
+
+                    <Label Text="EVALUACIÓN"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Subtitle"/>
+<!--Falta los radio buton-->
+              
+                <!--<Label Text="Condiciones preexistentes"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Subtitle"/>-->
+                
+                <Label Text="Estado de conservación:"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Subtitle"/>
+                
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Muy bueno"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="Bueno"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="Regular"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Malo"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="Critico"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                </StackLayout>
+                <Label Text="Falta de mantenimiento:"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Subtitle"/>
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Si"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="No"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                  
+                </StackLayout>
+                <Label Text="Levantamientos actualizados:"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Subtitle"/>
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Si"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="No"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+
+                </StackLayout>
+                <Label Text="Conjunto en general"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Subtitle"/>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Colapso total"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="Colapso parcial"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                            FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                  
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Inclinación del edificio o de uno de sus niveles"
+                           FontSize="Small"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           />
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="Fallo o asentamiento de la cimentación"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                </StackLayout>
+                <!--Falta los radio buton-->
+
+                    <Label Text="Elementos estructurales"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Subtitle"/>
+               
+                <Label 
+                    Text="Sistemas constructivos:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNSistemasConstructivosEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding sistemasConstructivosEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Cubiertas"
+                    HorizontalOptions="StartAndExpand"
+                    TextColor="{StaticResource Blanco}"
+                    FontSize="Subtitle"/>
+
+                <Label 
+                    Text="Losas:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNLosasEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding LosasEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Cupulas:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNCupulasEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding CupulasEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Bóvedas:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNBovedasEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding BovedasEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Techumbres:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNTechumbresEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding TechumbresEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Elementos verticales"
+                    HorizontalOptions="StartAndExpand"
+                    TextColor="{StaticResource Blanco}"
+                    FontSize="Subtitle"/>
+
+                <Label 
+                    Text="Mampostería piedra:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNMateriapiedraEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding MateriapiedraEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Mampostería tabique:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNMtabiqueEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding MtabiqueEntry, Mode=TwoWay}"/>
+               
+               
+                <Label 
+                    Text="Muros de concreto:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNMconcretoEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding MconcretoEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Columnas:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNColumnasEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding ColumnasEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Pilastras:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNPilastrasEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding PilastrasEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Contrafuertes:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNContrafuertesEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding ContrafuertesEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Elementos horizontales"
+                    HorizontalOptions="StartAndExpand"
+                    TextColor="{StaticResource Blanco}"
+                    FontSize="Subtitle"/>
+                <Label 
+                    Text="Arcos:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNArcosEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding ArcosEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Vigas:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNVigasEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding VigasEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Trabes:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNTrabesEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding TrabesEntry, Mode=TwoWay}"/>
+
+
+                <Label Text="Otros elementos"
+                       FontSize="Subtitle"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"/>
+               
+                <Label 
+                    Text="Torres:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNTorresEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding TorresEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Espadañas:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNEspadanasEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding EspadanasEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Elementos no estructurales"
+                    HorizontalOptions="StartAndExpand"
+                    TextColor="{StaticResource Blanco}"
+                    FontSize="Subtitle"/>
+                <Label 
+                    Text="Acabados y recubrimientos:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" />
+                <custom:CustomEntry 
+                    x:Name="XNARecubrimientosEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding ARecubrimientosEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Puertas y ventanas:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" 
+                    />
+                <custom:CustomEntry 
+                    x:Name="XNPVentasEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding PVentasEntry, Mode=TwoWay}"/>
+
+                <Label 
+                    Text="Ornamentos:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" 
+                    />
+                <custom:CustomEntry 
+                    x:Name="XNOrnamentosEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding OrnamentosEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Candelabros:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" 
+                    />
+                <custom:CustomEntry 
+                    x:Name="XNCandelabrosEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding CandelabrosEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Plafones o cielos rasos:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" 
+                    />
+                <custom:CustomEntry 
+                    x:Name="XNPCielosrasosEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding PCielosrasosEntry, Mode=TwoWay}"/>
+                <Label 
+                    Text="Retablos:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" 
+                    />
+                <custom:CustomEntry 
+                    x:Name="XNRetablosEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding RetablosEntry, Mode=TwoWay}"/>
+                <!--<Label 
+                    Text="Medium:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" 
+                    />-->
+                <StackLayout>
+                    <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Button x:Name="btnSelectPic" 
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        Text="Reporte fotográfico" 
+                            Command="{Binding lOadImageCommand}"
+                            BackgroundColor="{StaticResource Amarillo}" 
+                            TextColor="{StaticResource Negro}" />
+                </Grid>
+                    <Image Aspect="AspectFit"
+                           Source="{Binding BimageView}"
+                           HeightRequest="200" 
+                           WidthRequest="200" />
+                    <Label x:Name="UploadedUrl"  
+                           TextColor="{StaticResource Blanco}" 
+                           HeightRequest="85" 
+                           Text="{Binding LabelURLPath}" />
+            </StackLayout>
+                <Label Text="Afectaciones a bienes muebles:"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Subtitle"/>
+                <StackLayout Orientation="Horizontal">
+                    
+                    <Label Text="Si"
+                           FontSize="Small"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           />
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="No"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                </StackLayout>
+                <Label 
+                    Text="Recomendaciones:" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White" 
+                    />
+                <custom:CustomEntry 
+                    x:Name="XNRecomendacionesEntry" 
+                    WidthRequest="200" 
+                    Keyboard="Text" 
+                    IsReadOnly="true"
+                    TextColor="{StaticResource Blanco}"
+                    Text="{Binding RecomendacionesEntry, Mode=TwoWay}"/>
+                <Label Text="Requiere apuntalamiento:"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Subtitle"/>
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Si"
+                           FontSize="Small"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           />
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="No"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                </StackLayout>
+                <Label Text="Requiere retiro de escombro:"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Subtitle"/>
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Si"
+                           FontSize="Small"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           />
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="No"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Small"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                </StackLayout>
+                <Label Text="Clasificación"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Subtitle"/>
+                <Label Text="Triage:"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Subtitle"/>
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Blanco"
+                           FontSize="Micro"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           />
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="Verde"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Micro"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="Amarillo"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Micro"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="Rojo"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Micro"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Habitabilidad:"
+                           FontSize="Micro"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           />
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="Habitable	Parcialmente habitable:"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Micro"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    <Label Text="No habitable"
+                           TextColor="{StaticResource Blanco}"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Micro"/>
+                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          HorizontalOptions="StartAndExpand" 
+                          VerticalOptions="StartAndExpand" />
+                    
+                </StackLayout>
+                <Button 
+                    Text="Enviar formulario"
+                    Command="{Binding sEndFormsCommand}"
+                    BackgroundColor="{StaticResource Amarillo}"
+                    TextColor="{StaticResource Negro}" />
+            </StackLayout>
+
+        </ScrollView>
+    </Grid>
 </ContentPage>

@@ -96,7 +96,7 @@ namespace Conservapp.ViewModels
         {
             try
             {
-           
+               // App.Current.MainPage = new AppShell();
                 if (String.IsNullOrWhiteSpace(uSer_Entry))
                 {
                     await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo usuario, es obligatorio.", "Aceptar");
@@ -109,7 +109,7 @@ namespace Conservapp.ViewModels
                     }
                     else
                     {
-                       
+
                         if (uSer_Entry.Equals("cegirpuebla@gmail.com") || pAss_Entry.Equals("1234567"))
                         {
                             UserDialogs.Instance.ShowLoading("Validando registro ...");
@@ -119,8 +119,8 @@ namespace Conservapp.ViewModels
                         else
                         {
                             await Application.Current.MainPage.DisplayAlert("ConservApp", "Usuario no encontrado...", "Aceptar");
-                       }
-                      
+                        }
+
                     }
                 }
             }

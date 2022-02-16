@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.OS;
 using Android;
 using Acr.UserDialogs;
+using Plugin.CurrentActivity;
 
 namespace Conservapp.Droid
 {
@@ -30,6 +31,7 @@ namespace Conservapp.Droid
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
             #endregion
             LoadApplication(new App());
         }

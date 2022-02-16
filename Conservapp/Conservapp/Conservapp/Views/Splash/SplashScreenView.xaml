@@ -8,8 +8,8 @@
         <StackLayout Orientation="Horizontal" 
                      HorizontalOptions="CenterAndExpand"
                      VerticalOptions="CenterAndExpand"
-                     WidthRequest="90"
-                     HeightRequest="90"
+                     WidthRequest="170"
+                     HeightRequest="170"
                      >
             <Image Source="ico_splash" 
                    x:Name="icosplash"/>
