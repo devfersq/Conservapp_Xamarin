@@ -96,33 +96,33 @@ namespace Conservapp.ViewModels
         {
             try
             {
-               // App.Current.MainPage = new AppShell();
-                if (String.IsNullOrWhiteSpace(uSer_Entry))
-                {
-                    await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo usuario, es obligatorio.", "Aceptar");
-                }
-                else
-                {
-                    if (String.IsNullOrWhiteSpace(pAss_Entry))
-                    {
-                        await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo contraseña, es obligatorio.", "Aceptar");
-                    }
-                    else
-                    {
+                App.Current.MainPage = new AppShell();
+                //if (String.IsNullOrWhiteSpace(uSer_Entry))
+                //{
+                //    await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo usuario, es obligatorio.", "Aceptar");
+                //}
+                //else
+                //{
+                //    if (String.IsNullOrWhiteSpace(pAss_Entry))
+                //    {
+                //        await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo contraseña, es obligatorio.", "Aceptar");
+                //    }
+                //    else
+                //    {
 
-                        if (uSer_Entry.Equals("cegirpuebla@gmail.com") || pAss_Entry.Equals("1234567"))
-                        {
-                            UserDialogs.Instance.ShowLoading("Validando registro ...");
-                            App.Current.MainPage = new AppShell();
-                            UserDialogs.Instance.HideLoading();
-                        }
-                        else
-                        {
-                            await Application.Current.MainPage.DisplayAlert("ConservApp", "Usuario no encontrado...", "Aceptar");
-                        }
+                //        if (uSer_Entry.Equals("cegirpuebla@gmail.com") || pAss_Entry.Equals("1234567"))
+                //        {
+                //            UserDialogs.Instance.ShowLoading("Validando registro ...");
+                //            App.Current.MainPage = new AppShell();
+                //            UserDialogs.Instance.HideLoading();
+                //        }
+                //        else
+                //        {
+                //            await Application.Current.MainPage.DisplayAlert("ConservApp", "Usuario no encontrado...", "Aceptar");
+                //        }
 
-                    }
-                }
+                //    }
+                //}
             }
             catch (Exception ex)
             {
