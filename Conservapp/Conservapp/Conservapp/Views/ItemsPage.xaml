@@ -550,16 +550,15 @@
                     <Label Text="Si"
                            FontSize="Small"
                            TextColor="{StaticResource Blanco}"
-                           HorizontalOptions="StartAndExpand"
-                           />
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                           HorizontalOptions="StartAndExpand"/>
+                    <CheckBox IsChecked="{Binding IsCheckedAABMS, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                     <Label Text="No"
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            FontSize="Small"/>
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedAABMN, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                 </StackLayout>
@@ -572,7 +571,6 @@
                     x:Name="XNRecomendacionesEntry" 
                     WidthRequest="200" 
                     Keyboard="Text" 
-                    IsReadOnly="true"
                     TextColor="{StaticResource Blanco}"
                     Text="{Binding RecomendacionesEntry, Mode=TwoWay}"/>
                 <Label Text="Requiere apuntalamiento:"
@@ -586,14 +584,14 @@
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            />
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedRAS, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                     <Label Text="No"
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            FontSize="Small"/>
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedRAN, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                 </StackLayout>
@@ -608,14 +606,14 @@
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            />
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedRRDES, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                     <Label Text="No"
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            FontSize="Small"/>
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedRRDEN, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                 </StackLayout>
@@ -634,28 +632,28 @@
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            />
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedTB, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                     <Label Text="Verde"
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            FontSize="Micro"/>
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedTV, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                     <Label Text="Amarillo"
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            FontSize="Micro"/>
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedTA, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                     <Label Text="Rojo"
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            FontSize="Micro"/>
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedTR, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                 </StackLayout>
@@ -666,21 +664,21 @@
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            />
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedTH, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
-                    <Label Text="Habitable	Parcialmente habitable:"
+                    <Label Text="Habitable Parcialmente habitable:"
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            FontSize="Micro"/>
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedTHPH, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                     <Label Text="No habitable"
                            TextColor="{StaticResource Blanco}"
                            HorizontalOptions="StartAndExpand"
                            FontSize="Micro"/>
-                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                    <CheckBox IsChecked="{Binding IsCheckedTNH, Mode=TwoWay}" 
                           HorizontalOptions="StartAndExpand" 
                           VerticalOptions="StartAndExpand" />
                     

@@ -22274,28 +22274,31 @@ namespace Conservapp.Droid
 			public const int notify_panel_notification_icon_bg = 2131165360;
 			
 			// aapt resource value: 0x7F0700B1
-			public const int preference_list_divider_material = 2131165361;
+			public const int obj = 2131165361;
 			
 			// aapt resource value: 0x7F0700B2
-			public const int roundedbg = 2131165362;
+			public const int preference_list_divider_material = 2131165362;
 			
 			// aapt resource value: 0x7F0700B3
-			public const int roundedbgdark = 2131165363;
+			public const int roundedbg = 2131165363;
 			
 			// aapt resource value: 0x7F0700B4
-			public const int test_custom_background = 2131165364;
+			public const int roundedbgdark = 2131165364;
 			
 			// aapt resource value: 0x7F0700B5
-			public const int tooltip_frame_dark = 2131165365;
+			public const int test_custom_background = 2131165365;
 			
 			// aapt resource value: 0x7F0700B6
-			public const int tooltip_frame_light = 2131165366;
+			public const int tooltip_frame_dark = 2131165366;
 			
 			// aapt resource value: 0x7F0700B7
-			public const int Usericon = 2131165367;
+			public const int tooltip_frame_light = 2131165367;
 			
 			// aapt resource value: 0x7F0700B8
-			public const int xamarin_logox = 2131165368;
+			public const int Usericon = 2131165368;
+			
+			// aapt resource value: 0x7F0700B9
+			public const int xamarin_logox = 2131165369;
 			
 			static Drawable()
 			{

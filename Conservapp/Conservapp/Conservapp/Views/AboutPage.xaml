@@ -275,7 +275,7 @@
                     TextColor="White" />
                 <Image
                     x:Name="imageobj"
-                  Source="Dashboardshell" 
+                  Source="obj" 
                   HorizontalOptions="CenterAndExpand"/>
                 <Frame 
                                     Padding="0,10,0,10"

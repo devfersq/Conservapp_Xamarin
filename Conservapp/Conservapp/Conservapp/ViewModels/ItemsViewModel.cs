@@ -3,6 +3,7 @@ using Plugin.Media.Abstractions;
 using System;
 using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -40,43 +41,35 @@ namespace Conservapp.ViewModels
             image.Source = ImageSource.FromStream(() => memoryStream);
             return image;
         }
+        public MediaFile AttachedImage;
         public async void sEndFormsCommandClicked()
         {
             try
             {
-                //var imgSourceV = ImageSource.FromUri(new Uri(file_path));
-                //var byteArray = new WebClient().DownloadData(file_path);
-                //var image = new Image { Source = file_path };
-                //var file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
-                //{
-                //    PhotoSize = PhotoSize.Small
-                //});
-
-               // var xxxx = new UIImageView(UIImage.FromBundle("face-template.png"));
-                //var xxxx = DependencyService.Get <IDependency().RetriveImageFromLocation(file_path);
-               // var xxx = ImageSource.FromStream(() => typeof(App).Assembly.GetManifestResourceStream(file_path));
                 await Share.RequestAsync(new ShareTextRequest
                 {
 
                     Subject = "[ConservApp] EVALUACIÓN RAPIDA DE DAÑOS",
                     Text = "ConservApp",
                     Title = "[ConservApp] EVALUACIÓN RAPIDA DE DAÑOS",
-                    Uri = "Contingencia:"+ ContingenciaEntry+ "\n" + "Fecha:"+ FechaEntry + "\n" + "Hora:" + HoraEntry + "\n" 
-                         + "Nombre del evaluador:" + NombreevaluadorEntry + "\n" + "Teléfono:" + TelefonoEntry + "\n" + "Acompañante en la visita:" + AcompananteVisitaEntry + "\n"+ "EVALUACIÓN" + "\n" + "Condiciones preexistentes" + "\n"
-                         + "Uso actual:" + UsoActualEntry + "\n" + "Estado de conservación:" + "\n" + "Muy bueno:" + IsCheckedMB + "\n" + "Bueno:" + IsCheckedB + "\n" + "Regular:" + IsCheckedR + "\n"
-                         + "Malo:" + IsCheckedM + "\n" + "Critico:" + IsCheckedC + "\n" + "Falta de mantenimiento:" + "\n" + "Si:" + IsCheckedFDMS + "\n" + "No:" + IsCheckedFDMN + "\n" + "Levantamientos actualizados:" + "\n" + "Si:"+ IsCheckedLAS + "\n"
-                         + "No:" + IsCheckedLAN + "\n" + "Conjunto en general:" + "\n" + "Colapso total:" + IsCheckedCT + "\n" + "Colapso parcial:" + IsCheckedCP + "\n" 
-                         + "Inclinación del edificio o de uno de sus niveles:" + IsCheckedIDEODUDSN + "\n" + "Fallo o asentamiento de la cimentación:" + IsCheckedFOADLC + "\n"
-                         + "Elementos estructurales" + "\n" + "Sistemas constructivos:" + sistemasConstructivosEntry + "\n"+ "Cubiertas:" + "\n" + "Losas:" + LosasEntry + "\n"
-                         + "Cupulas:" + CupulasEntry + "\n" + "Bóvedas:" + BovedasEntry + "\n" + "Techumbres:" + TechumbresEntry + "\n" + "Elementos verticales:" + "\n"
-                         + "Mampostería piedra:" + MateriapiedraEntry + "\n" + "Mampostería tabique:" + MtabiqueEntry + "\n" + "Muros de concreto:" + MconcretoEntry + "\n" + "Columnas:"+ ColumnasEntry + "\n"
-                         + "Pilastras:" + PilastrasEntry + "\n" + "Contrafuertes:" + ContrafuertesEntry + "\n" + "Elementos horizontales:" + "\n" + "Arcos:" + ArcosEntry + "\n"
-                         + "Vigas:" + VigasEntry + "\n" + "Trabes:" + TrabesEntry + "\n" + "Otros elementos:" + "\n" + "Torres:" + TorresEntry + "\n"
-                         + "Espadañas:" + EspadanasEntry + "\n" + "Elementos no estructurales:" + "\n" + "Acabados y recubrimientos:"+ ARecubrimientosEntry + "\n" + "Puertas y ventanas:" + PVentasEntry + "\n"
-                         + "Ornamentos:" + OrnamentosEntry + "\n" + "Candelabros:" + CandelabrosEntry + "\n" + "Plafones o cielos rasos:" + PCielosrasosEntry + "\n"
-                         + "Retablos:" + RetablosEntry + "\n"// + xxxx
-                    //ImageSource.FromStream(() => new MemoryStream(byteArray))+ image+ xxx
-                    //ImageSource.FromStream(() => typeof(App).Assembly.GetManifestResourceStream("background.png"))  //"Candelabros:" + CandelabrosEntry + "\n" + "Plafones o cielos rasos:" + PCielosrasosEntry + "\n"
+
+                    Uri = "Contingencia: " + ContingenciaEntry + "\n" + "Fecha: " + FechaEntry + "\n" + "Hora: " + HoraEntry + "\n"
+                         + "Nombre del evaluador: " + NombreevaluadorEntry + "\n" + "Teléfono: " + TelefonoEntry + "\n" + "Acompañante en la visita: " + AcompananteVisitaEntry + "\n" + "EVALUACIÓN" + "\n" + "Condiciones preexistentes" + "\n"
+                         + "Uso actual: " + UsoActualEntry + "\n" + "Estado de conservación: " + "\n" + "Muy bueno: " + IsCheckedMB + "\n" + "Bueno: " + IsCheckedB + "\n" + "Regular: " + IsCheckedR + "\n"
+                         + "Malo: " + IsCheckedM + "\n" + "Critico: " + IsCheckedC + "\n" + "Falta de mantenimiento: " + "\n" + "Si: " + IsCheckedFDMS + "\n" + "No: " + IsCheckedFDMN + "\n" + "Levantamientos actualizados: " + "\n" + "Si:" + IsCheckedLAS + "\n"
+                         + "No: " + IsCheckedLAN + "\n" + "Conjunto en general" + "\n" + "Colapso total: " + IsCheckedCT + "\n" + "Colapso parcial: " + IsCheckedCP + "\n"
+                         + "Inclinación del edificio o de uno de sus niveles: " + IsCheckedIDEODUDSN + "\n" + "Fallo o asentamiento de la cimentación: " + IsCheckedFOADLC + "\n"
+                         + "Elementos estructurales" + "\n" + "Sistemas constructivos: " + sistemasConstructivosEntry + "\n" + "Cubiertas: " + "\n" + "Losas: " + LosasEntry + "\n"
+                         + "Cupulas: " + CupulasEntry + "\n" + "Bóvedas: " + BovedasEntry + "\n" + "Techumbres: " + TechumbresEntry + "\n" + "Elementos verticales: " + "\n"
+                         + "Mampostería piedra: " + MateriapiedraEntry + "\n" + "Mampostería tabique: " + MtabiqueEntry + "\n" + "Muros de concreto: " + MconcretoEntry + "\n" + "Columnas: " + ColumnasEntry + "\n"
+                         + "Pilastras: " + PilastrasEntry + "\n" + "Contrafuertes: " + ContrafuertesEntry + "\n" + "Elementos horizontales" + "\n" + "Arcos: " + ArcosEntry + "\n"
+                         + "Vigas: " + VigasEntry + "\n" + "Trabes: " + TrabesEntry + "\n" + "Otros elementos" + "\n" + "Torres: " + TorresEntry + "\n"
+                         + "Espadañas: " + EspadanasEntry + "\n" + "Elementos no estructurales: " + "\n" + "Acabados y recubrimientos: " + ARecubrimientosEntry + "\n" + "Puertas y ventanas: " + PVentasEntry + "\n"
+                         + "Ornamentos: " + OrnamentosEntry + "\n" + "Candelabros: " + CandelabrosEntry + "\n" + "Plafones o cielos rasos: " + PCielosrasosEntry + "\n"
+                         + "Retablos: " + RetablosEntry + "\n" + "Reporte fotográfico:"+ "\n" + "https://smarttobusiness.com/img/bg-pattern/logoo.png" + "\n"
+                         + "Afectaciones a bienes muebles"+ "\n" + "Si: "+ IsCheckedAABMS + "\n" + "No: "+ IsCheckedAABMN + "\n" + "Recomendaciones: " + RecomendacionesEntry + "\n" + "Requiere apuntalamiento" + "\n"+ "SI: " + IsCheckedRAS + "\n"
+                         + "No: "+ IsCheckedRAN + "\n" + "Requiere retiro de escombro: " + "\n" + "Si: " + IsCheckedRRDES + "\n" + "No: " + IsCheckedRRDEN + "\n" + "Clasificación" + "\n"+ "Triage:" + "\n"
+                         + "Blanco: " + IsCheckedTB + "\n" + "Verde: " + IsCheckedTV + "\n" + "Amarillo: " + IsCheckedTA + "\n" + "Rojo: " + IsCheckedTR + "\n" + "Habitabilidad: "+ IsCheckedTH + "\n" + "Habitable Parcialmente habitable: "+ IsCheckedTHPH + "\n"+ "No habitable: " + IsCheckedTNH + "\n"
 
                 });
             }
@@ -99,7 +92,7 @@ namespace Conservapp.ViewModels
                 }
                 else
                 {
-                   
+
                     var file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
                     {
                         PhotoSize = PhotoSize.Small
@@ -112,7 +105,7 @@ namespace Conservapp.ViewModels
                             file_path = file.Path;
                             file.Dispose();
                             return stream;
-                            
+
                         });
                     }
 
@@ -359,8 +352,185 @@ namespace Conservapp.ViewModels
                 this.OnPropertyChanged("IsCheckedFOADLC");
             }
         }
+
+        //Despues de cargar la Imagen
+        public bool _IsCheckedAABMS = false;
+        public bool IsCheckedAABMS
+        {
+            get
+            {
+                return _IsCheckedAABMS;
+            }
+            set
+            {
+                _IsCheckedAABMS = value;
+                this.OnPropertyChanged("IsCheckedAABMS");
+            }
+        }
+        public bool _IsCheckedAABMN = false;
+        public bool IsCheckedAABMN
+        {
+            get
+            {
+                return _IsCheckedAABMN;
+            }
+            set
+            {
+                _IsCheckedAABMN = value;
+                this.OnPropertyChanged("IsCheckedAABMN");
+            }
+        }
+        private string _RecomendacionesEntry;
+        public string RecomendacionesEntry
+        {
+            get { return _RecomendacionesEntry; }
+            set { SetProperty(ref _RecomendacionesEntry, value); }
+        }
+        public bool _IsCheckedRAS = false;
+        public bool IsCheckedRAS
+        {
+            get
+            {
+                return _IsCheckedRAS;
+            }
+            set
+            {
+                _IsCheckedRAS = value;
+                this.OnPropertyChanged("IsCheckedRAS");
+            }
+        }
+        public bool _IsCheckedRAN = false;
+        public bool IsCheckedRAN
+        {
+            get
+            {
+                return _IsCheckedRAN;
+            }
+            set
+            {
+                _IsCheckedRAN = value;
+                this.OnPropertyChanged("IsCheckedRAN");
+            }
+        }
+        public bool _IsCheckedRRDES = false;
+        public bool IsCheckedRRDES
+        {
+            get
+            {
+                return _IsCheckedRRDES;
+            }
+            set
+            {
+                _IsCheckedRRDES = value;
+                this.OnPropertyChanged("IsCheckedRRDES");
+            }
+        }
+        public bool _IsCheckedRRDEN = false;
+        public bool IsCheckedRRDEN
+        {
+            get
+            {
+                return _IsCheckedRRDEN;
+            }
+            set
+            {
+                _IsCheckedRRDEN = value;
+                this.OnPropertyChanged("IsCheckedRRDEN");
+            }
+        }
+        public bool _IsCheckedTB = false;
+        public bool IsCheckedTB
+        {
+            get
+            {
+                return _IsCheckedTB;
+            }
+            set
+            {
+                _IsCheckedTB = value;
+                this.OnPropertyChanged("IsCheckedTB");
+            }
+        }
+        public bool _IsCheckedTV = false;
+        public bool IsCheckedTV
+        {
+            get
+            {
+                return _IsCheckedTV;
+            }
+            set
+            {
+                _IsCheckedTV = value;
+                this.OnPropertyChanged("IsCheckedTV");
+            }
+        }
+        public bool _IsCheckedTA = false;
+        public bool IsCheckedTA
+        {
+            get
+            {
+                return _IsCheckedTA;
+            }
+            set
+            {
+                _IsCheckedTA = value;
+                this.OnPropertyChanged("IsCheckedTA");
+            }
+        }
+        public bool _IsCheckedTR = false;
+        public bool IsCheckedTR
+        {
+            get
+            {
+                return _IsCheckedTR;
+            }
+            set
+            {
+                _IsCheckedTR = value;
+                this.OnPropertyChanged("IsCheckedTR");
+            }
+        }
+        public bool _IsCheckedTH = false;
+        public bool IsCheckedTH
+        {
+            get
+            {
+                return _IsCheckedTH;
+            }
+            set
+            {
+                _IsCheckedTH = value;
+                this.OnPropertyChanged("IsCheckedTH");
+            }
+        }
+        public bool _IsCheckedTHPH = false;
+        public bool IsCheckedTHPH
+        {
+            get
+            {
+                return _IsCheckedTHPH;
+            }
+            set
+            {
+                _IsCheckedTHPH = value;
+                this.OnPropertyChanged("IsCheckedTHPH");
+            }
+        }
+        public bool _IsCheckedTNH = false;
+        public bool IsCheckedTNH
+        {
+            get
+            {
+                return _IsCheckedTNH;
+            }
+            set
+            {
+                _IsCheckedTNH = value;
+                this.OnPropertyChanged("IsCheckedTNH");
+            }
+        }
         #endregion
-        
+
         private string _sistemasConstructivosEntry;
         public string sistemasConstructivosEntry
         {
