@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using Conservapp.Controls;
 using Conservapp.Models;
 using Newtonsoft.Json;
 using System;
@@ -19,7 +20,9 @@ namespace Conservapp.ViewModels
         {
             try
             {
-                Title = "Bienvenido";
+                string UserDate = Userlogged.UserName;
+                var replacement = UserDate.Replace("@gmail.com", "");
+                Title = "Bienvenido"+ " " + replacement;
                 lAbelcyf = false;
                 BImage1 = false;
                 lPym = false;

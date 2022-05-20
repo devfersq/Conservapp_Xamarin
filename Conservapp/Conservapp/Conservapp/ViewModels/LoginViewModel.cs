@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using Conservapp.Controls;
 using Conservapp.Models;
 using Newtonsoft.Json;
 using System;
@@ -67,9 +68,14 @@ namespace Conservapp.ViewModels
                             var JsonResult_ = JsonConvert.DeserializeObject<LoginModel>(ObjJson_);
                             var uSer_Entry = JsonResult_.Email;
                             var pAss_Entry = JsonResult_.Passw;
-                                    if (uSer_Entry.Equals("cegirpuebla@gmail.com") || pAss_Entry.Equals("1234567"))
-                                    {
-                                        App.Current.MainPage = new AppShell();
+                            if (uSer_Entry.Equals("cegirpuebla@gmail.com") && pAss_Entry.Equals("1234567") || uSer_Entry.Equals("maria.lara@gmail.com") && pAss_Entry.Equals("1234567") || uSer_Entry.Equals("alejandro.benitez@gmail.com") && pAss_Entry.Equals("1234567") ||
+                            uSer_Entry.Equals("moises.morales@gmail.com") && pAss_Entry.Equals("1234567") || uSer_Entry.Equals("vicente.martinez@gmail.com") && pAss_Entry.Equals("1234567") || uSer_Entry.Equals("manuel.villarruel@gmail.com") && pAss_Entry.Equals("1234567"))
+                            {
+                                //App.Current.MainPage = new AppShell();
+                                UserDialogs.Instance.ShowLoading("Validando registro ...");
+                                Userlogged.UserName = uSer_Entry;
+                                App.Current.MainPage = new AppShell();
+                                UserDialogs.Instance.HideLoading();
                             }
                                     else
                                     {
@@ -90,39 +96,43 @@ namespace Conservapp.ViewModels
             catch (Exception ex)
             {
                 var error = ex.ToString();
+                UserDialogs.Instance.HideLoading();
             }
+
         }
         public async void IngresarCommandClicked()
         {
             try
             {
                 App.Current.MainPage = new AppShell();
-                //if (String.IsNullOrWhiteSpace(uSer_Entry))
-                //{
-                //    await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo usuario, es obligatorio.", "Aceptar");
-                //}
-                //else
-                //{
-                //    if (String.IsNullOrWhiteSpace(pAss_Entry))
-                //    {
-                //        await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo contraseña, es obligatorio.", "Aceptar");
-                //    }
-                //    else
-                //    {
+                if (String.IsNullOrWhiteSpace(uSer_Entry))
+                {
+                    await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo usuario, es obligatorio.", "Aceptar");
+                }
+                else
+                {
+                    if (String.IsNullOrWhiteSpace(pAss_Entry))
+                    {
+                        await Application.Current.MainPage.DisplayAlert("ConservApp", "El campo contraseña, es obligatorio.", "Aceptar");
+                    }
+                    else
+                    {
 
-                //        if (uSer_Entry.Equals("cegirpuebla@gmail.com") || pAss_Entry.Equals("1234567"))
-                //        {
-                //            UserDialogs.Instance.ShowLoading("Validando registro ...");
-                //            App.Current.MainPage = new AppShell();
-                //            UserDialogs.Instance.HideLoading();
-                //        }
-                //        else
-                //        {
-                //            await Application.Current.MainPage.DisplayAlert("ConservApp", "Usuario no encontrado...", "Aceptar");
-                //        }
+                        if (uSer_Entry.Equals("cegirpuebla@gmail.com") && pAss_Entry.Equals("1234567") || uSer_Entry.Equals("maria.lara@gmail.com") && pAss_Entry.Equals("1234567") || uSer_Entry.Equals("alejandro.benitez@gmail.com") && pAss_Entry.Equals("1234567") ||
+                            uSer_Entry.Equals("moises.morales@gmail.com") && pAss_Entry.Equals("1234567") || uSer_Entry.Equals("vicente.martinez@gmail.com") && pAss_Entry.Equals("1234567") || uSer_Entry.Equals("manuel.villarruel@gmail.com") && pAss_Entry.Equals("1234567"))
+                        {
+                            UserDialogs.Instance.ShowLoading("Validando registro ...");
+                            Userlogged.UserName = uSer_Entry;
+                            App.Current.MainPage = new AppShell();
+                            UserDialogs.Instance.HideLoading();
+                        }
+                        else
+                        {
+                            await Application.Current.MainPage.DisplayAlert("ConservApp", "Usuario no encontrado...", "Aceptar");
+                        }
 
-                //    }
-                //}
+                    }
+                }
             }
             catch (Exception ex)
             {

@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\" />
     <Folder Include="Converters\" />
     <Folder Include="Entities\" />
     <Folder Include="Helpers\" />
